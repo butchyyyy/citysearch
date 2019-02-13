@@ -1,0 +1,6 @@
+{
+  "library": "spring-mvc",
+  "modelPackage": "com.butchyyyy.citysearch.generated",
+  "apiPackage": "com.butchyyyy.citysearch.generated",
+  "interfaceOnly": true
+}

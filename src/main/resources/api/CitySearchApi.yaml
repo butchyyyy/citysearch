@@ -1,0 +1,60 @@
+openapi: "3.0.0"
+info:
+  title: "City Search API"
+  version: "0.0.1"
+  description: "City Search API"
+  contact:
+    email: "Konir.M@gmail.com"
+host: "localhost"
+
+schemes:
+  - "http"
+servers:
+  - /api
+
+paths:
+  /cities/search:
+    get:
+      summary: Search cities matching query string
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+          description: The city query string, serach uses partial matching
+      responses:
+        200:
+          description: List of cities matching query string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/City'
+        400:
+          description: Bad Request
+        500:
+          description: Internal Server error
+
+components:
+  schemas:
+    City:
+      type: object
+      properties:
+        name:
+          type: string
+          description: City name
+        country:
+          type: string
+          description: Country name
+        population:
+          type: integer
+          format: int64
+        lat:
+          type: number
+          format: double
+          description: City latituted geographic coordinate
+        lng:
+          type: number
+          format: double
+          description: City longitude geographic coordinate
