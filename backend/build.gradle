@@ -59,3 +59,10 @@ build.dependsOn generateSwaggerUI
 compileJava.dependsOn swaggerSources.CitySearch.code
 sourceSets.main.java.srcDir "${swaggerSources.CitySearch.code.outputDir}/src/main/java"
 sourceSets.main.resources.srcDir "${swaggerSources.CitySearch.code.outputDir}/src/main/resources"
+
+bootJar {
+    from('../frontend/dist') {
+        into "static"
+    }
+    bootJar.dependsOn(':frontend:buildProd')
+}

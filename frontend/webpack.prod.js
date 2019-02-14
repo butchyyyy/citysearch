@@ -15,7 +15,7 @@ const output = merge(CommonConfig, {
       sourceMap: true,
     }),
     new CompressionPlugin({
-      asset: "[path].gz[query]",
+      filename: "[path].gz[query]",
       algorithm: "gzip",
       test: /\.(js|html|json)$/,
       threshold: 10240,
