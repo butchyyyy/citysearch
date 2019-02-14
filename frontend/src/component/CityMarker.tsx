@@ -46,7 +46,7 @@ class CityMarker extends React.Component<Props, State> {
                   <br />
                   <small>{city.country}</small>
                   <br />
-                  <small>Population: {city.population}</small>
+                  <small>Population: {city.population || "N/A"}</small>
                 </div>
               </InfoWindow>
           )}
