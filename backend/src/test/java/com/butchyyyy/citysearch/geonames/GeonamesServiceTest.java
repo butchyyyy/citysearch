@@ -22,7 +22,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.powermock.api.mockito.PowerMockito.when;
+import static org.mockito.Mockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(WebService.class)
@@ -34,11 +34,6 @@ public class GeonamesServiceTest {
   public void setUp() {
     geonamesService = new GeonamesServiceImpl();
     PowerMockito.mockStatic(WebService.class);
-  }
-
-  @Test
-  public void testSearch() {
-    geonamesService.searchCities("Test");
   }
 
   @Test
@@ -77,7 +72,5 @@ public class GeonamesServiceTest {
     assertNotNull(collection);
     assertThat(collection, is(empty()));
   }
-
-
 
 }

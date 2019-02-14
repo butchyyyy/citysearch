@@ -1,0 +1,101 @@
+{
+  "name": "city-search-frontend",
+  "version": "0.0.1",
+  "description": "City Search Frontend",
+  "main": "index.tsx",
+  "typings": "index.d.ts",
+  "author": "Milan Koníř",
+  "license": "UNLICENSED",
+  "private": true,
+  "browserslist": [
+    "> 1%"
+  ],
+  "scripts": {
+    "start": "webpack-dev-server --config=webpack.dev.js --progress --colors",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "tslint --project tsconfig.json",
+    "build:prod": "cross-env webpack --config=webpack.prod.js",
+    "build:dev": "cross-env webpack --config=webpack.dev.js"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "transform": {
+      "\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": ".*/__tests__/.*\\.test.*\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "setupFiles": [
+      "raf/polyfill",
+      "./setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/index.tsx",
+      "!src/**/*.{d.ts}",
+      "!**/node_modules/**"
+    ]
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "react": "16.8.1",
+    "react-dom": "16.8.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@types/enzyme": "^3.1.18",
+    "@types/jest": "^24.0.4",
+    "@types/node": "^11.9.3",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.1",
+    "@types/webpack-dev-server": "^3.1.2",
+    "@types/webpack-env": "^1.13.7",
+    "babel-loader": "^8.0.5",
+    "compression-webpack-plugin": "^2.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^2.1.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "enzyme-to-json": "^3.3.5",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.1.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "raf": "^3.4.1",
+    "react-hot-loader": "^4.6.5",
+    "rimraf": "^2.6.3",
+    "style-loader": "^0.23.1",
+    "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.12.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
+  }
+}

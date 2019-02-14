@@ -31,10 +31,6 @@ public class CitySearchControllerTest {
   @Before
   public void setUp() {
     RestAssured.port = this.port;
-/*    RestAssured.requestSpecification = new RequestSpecBuilder().setContentType("application/json").build();
-    RestAssured.responseSpecification = new ResponseSpecBuilder().expectContentType("application/json").build();
-    RestAssured.config = RestAssured.config().encoderConfig(EncoderConfig.encoderConfig().defaultContentCharset("UTF-8"));
-    RestAssured.config = RestAssured.config().jsonConfig(JsonConfig.jsonConfig().numberReturnType(NumberReturnType.BIG_DECIMAL));*/
   }
 
   @Test
