@@ -1,4 +1,5 @@
 import classNames from "classnames"
+import CityTable from "component/CityTable"
 import Navbar from "component/Navbar"
 import SearchInput from "component/SearchInput"
 import City from "model/City"
@@ -36,7 +37,12 @@ class App extends React.Component<{}, State> {
   }
 
   submitSearch() {
-
+    fetch(`/api/cities/search?query=${this.state.searchInput}`)
+        .then((response: Response) => {
+          if (response.ok) {
+            response.json().then((data) => this.setState({searchResult: data}))
+          }
+        })
   }
 
   render() {
