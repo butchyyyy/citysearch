@@ -55,8 +55,8 @@ public class GeonamesServiceTest {
   public void testResultTransformation() throws Exception {
     ToponymSearchResult mockResult = new ToponymSearchResult();
     mockResult.setToponyms(Arrays.asList(
-        TestHelpers.createToponym("Prague", "Czechia", 1165581L, 50.08804, 14.42076),
-        TestHelpers.createToponym("New Prague", "United States", 7582L, 44.5433, -93.57607)
+        TestHelpers.createToponym("Prague", "Czechia", null, null, 1165581L, 50.08804, 14.42076),
+        TestHelpers.createToponym("New Prague", "United States", "Minnesota", "Minneapolis", 7582L, 44.5433, -93.57607)
     ));
     when(WebService.search(any(ToponymSearchCriteria.class))).thenReturn(mockResult);
     List<City> searchResult = geonamesService.searchCities("Prague");
@@ -64,7 +64,7 @@ public class GeonamesServiceTest {
     assertThat(searchResult.size(), is(2));
     assertThat(searchResult, hasItems(
         TestHelpers.createCity("Prague", "Czechia", 1165581L, 50.08804, 14.42076),
-        TestHelpers.createCity("New Prague", "United States", 7582L, 44.5433, -93.57607)
+        TestHelpers.createCity("New Prague", "United States, Minnesota, Minneapolis", 7582L, 44.5433, -93.57607)
     ));
   }
 

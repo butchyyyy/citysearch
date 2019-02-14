@@ -65,11 +65,11 @@ public class GeonamesServiceImpl implements GeonamesService {
   private String getCountryName(Toponym toponym) {
     String countryName = toponym.getCountryName();
     try {
-      if (!StringUtils.isEmpty(toponym.getAdminName2())) {
-        countryName += ", " + toponym.getAdminName2();
-      }
       if (!StringUtils.isEmpty(toponym.getAdminName1())) {
         countryName += ", " + toponym.getAdminName1();
+      }
+      if (!StringUtils.isEmpty(toponym.getAdminName2())) {
+        countryName += ", " + toponym.getAdminName2();
       }
     } catch (
         InsufficientStyleException ex) {

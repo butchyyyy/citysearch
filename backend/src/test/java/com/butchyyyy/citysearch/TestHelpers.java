@@ -5,10 +5,13 @@ import org.geonames.Toponym;
 
 public class TestHelpers {
 
-  public static Toponym createToponym(String name, String country, Long population, Double lat, Double lng) {
+  public static Toponym createToponym(String name, String country, String adminName1, String adminName2,
+      Long population, Double lat, Double lng) {
     Toponym toponym = new Toponym();
     toponym.setName(name);
     toponym.setCountryName(country);
+    toponym.setAdminName1(adminName1);
+    toponym.setAdminName2(adminName2);
     toponym.setPopulation(population);
     toponym.setLatitude(lat);
     toponym.setLongitude(lng);
