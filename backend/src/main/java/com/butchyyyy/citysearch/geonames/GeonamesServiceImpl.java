@@ -31,7 +31,7 @@ public class GeonamesServiceImpl implements GeonamesService {
         ToponymSearchCriteria search = new ToponymSearchCriteria();
         search.setName(query);
         search.setFeatureClass(FeatureClass.P);
-        search.setStyle(Style.LONG);
+        search.setStyle(Style.FULL);
         ToponymSearchResult searchResult = WebService.search(search);
         return searchResult.getToponyms().stream().map(this::mapToponymToCity).collect(Collectors.toList());
       }
@@ -65,10 +65,14 @@ public class GeonamesServiceImpl implements GeonamesService {
   private String getCountryName(Toponym toponym) {
     String countryName = toponym.getCountryName();
     try {
-      if (!StringUtils.isEmpty(toponym.getAdminName1()) && !toponym.getAdminName1().equals(toponym.getName())) {
+      if (!StringUtils.isEmpty(toponym.getAdminName2())) {
+        countryName += ", " + toponym.getAdminName2();
+      }
+      if (!StringUtils.isEmpty(toponym.getAdminName1())) {
         countryName += ", " + toponym.getAdminName1();
       }
-    } catch (InsufficientStyleException ex) {
+    } catch (
+        InsufficientStyleException ex) {
       // No administrative sub divison available >;
     }
     return countryName;
