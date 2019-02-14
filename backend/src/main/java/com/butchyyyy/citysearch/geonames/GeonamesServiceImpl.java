@@ -52,7 +52,7 @@ public class GeonamesServiceImpl implements GeonamesService {
     try {
       City city = new City();
       city.setName(toponym.getName());
-      city.setCountry(toponym.getCountryName());
+      city.setCountry(getCountryName(toponym));
       city.setPopulation(toponym.getPopulation());
       city.setLat(toponym.getLatitude());
       city.setLng(toponym.getLongitude());
@@ -60,6 +60,18 @@ public class GeonamesServiceImpl implements GeonamesService {
     } catch (InsufficientStyleException ex) {
       throw new RuntimeException(ex);
     }
+  }
+
+  private String getCountryName(Toponym toponym) {
+    String countryName = toponym.getCountryName();
+    try {
+      if (!StringUtils.isEmpty(toponym.getAdminName1()) && !toponym.getAdminName1().equals(toponym.getName())) {
+        countryName += ", " + toponym.getAdminName1();
+      }
+    } catch (InsufficientStyleException ex) {
+      // No administrative sub divison available >;
+    }
+    return countryName;
   }
 
 }
