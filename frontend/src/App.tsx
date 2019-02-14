@@ -85,7 +85,7 @@ class App extends React.Component<{}, State> {
                 <TabPane tabId="2">
                   <Row className="row-top-buffer">
                     <Col>
-                      Table view here
+                      <CityTable cities={this.state.searchResult}/>
                     </Col>
                   </Row>
                 </TabPane>
