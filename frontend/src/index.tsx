@@ -18,3 +18,4 @@ fetch("/config/mapApiKey")
         })
       }
     })
+    .catch(() => window.alert("Failed to init app :`("))
