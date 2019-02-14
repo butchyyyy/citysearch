@@ -62,6 +62,7 @@
     "classnames": "^2.2.6",
     "react": "16.8.1",
     "react-dom": "16.8.1",
+    "react-google-maps": "^9.4.5",
     "reactstrap": "^7.1.0"
   },
   "devDependencies": {

@@ -36,9 +36,6 @@ module.exports = {
     modules: ["src", "node_modules"],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      VERSION: JSON.stringify(require("./package.json").version)
-    }),
     HtmlWebpackPluginConfig,
     CopyWebpackPluginConfig,
   ],

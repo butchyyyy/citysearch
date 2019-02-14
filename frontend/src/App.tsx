@@ -1,4 +1,5 @@
 import classNames from "classnames"
+import CityMap from "component/CityMap"
 import CityTable from "component/CityTable"
 import Navbar from "component/Navbar"
 import SearchInput from "component/SearchInput"
@@ -87,7 +88,7 @@ class App extends React.Component<{}, State> {
                 <TabPane tabId="1">
                   <Row className="row-top-buffer">
                     <Col>
-                      Map view here
+                      <CityMap cities={this.state.searchResult} />
                     </Col>
                   </Row>
                 </TabPane>
