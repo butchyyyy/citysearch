@@ -12,8 +12,8 @@ type Props = OwnProps & WithGoogleMapProps & WithScriptjsProps
 
 const CityMap: React.FunctionComponent<Props> = (props: Props) => (
     <GoogleMap defaultCenter={{ lat: 0, lng: 0 }} defaultZoom={2}>
-      {props.cities.map((city) => (
-          <CityMarker key={city.name + city.country} city={city} />
+      {props.cities.map((city, index) => (
+          <CityMarker key={index} city={city} />
       ))}
     </GoogleMap>
 )

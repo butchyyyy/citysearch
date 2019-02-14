@@ -18,8 +18,8 @@ const CityTable = (props: Props) => (
       </tr>
       </thead>
       <tbody>
-      {props.cities.map((city) => (
-          <tr key={city.name}>
+      {props.cities.map((city, index) => (
+          <tr key={index}>
             <td>{city.name}</td>
             <td>{city.country}</td>
             <td>{city.population}</td>
