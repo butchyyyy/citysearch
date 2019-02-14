@@ -1,5 +1,6 @@
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { faSearchLocation } from "@fortawesome/free-solid-svg-icons"
+
 import App from "App"
 
 import "bootstrap/dist/css/bootstrap.min.css"

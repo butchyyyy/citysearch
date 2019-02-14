@@ -9,13 +9,12 @@ interface Props {
 }
 
 const SearchInput = (props: Props) => {
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     props.onSearchInput(e.target.value)
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       props.onSubmitSearch()
     }
   }
@@ -24,13 +23,12 @@ const SearchInput = (props: Props) => {
       <InputGroup>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>
-            <FontAwesomeIcon icon="search-location"/>
+            <FontAwesomeIcon icon="search-location" />
           </InputGroupText>
         </InputGroupAddon>
-        <Input value={props.value} onChange={handleChange} onKeyPress={handleKeyPress}/>
+        <Input value={props.value} onChange={handleChange} onKeyPress={handleKeyPress} />
       </InputGroup>
   )
-
 }
 
 export default SearchInput

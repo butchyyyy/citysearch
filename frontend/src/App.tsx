@@ -13,7 +13,6 @@ interface State {
 }
 
 class App extends React.Component<{}, State> {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -22,6 +21,8 @@ class App extends React.Component<{}, State> {
       searchResult: [],
     }
     this.toggle = this.toggle.bind(this)
+    this.toggleTab1 = this.toggleTab1.bind(this)
+    this.toggleTab2 = this.toggleTab2.bind(this)
     this.searchInput = this.searchInput.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
   }
@@ -32,6 +33,14 @@ class App extends React.Component<{}, State> {
     }
   }
 
+  toggleTab1() {
+    this.toggle("1")
+  }
+
+  toggleTab2() {
+    this.toggle("2")
+  }
+
   searchInput(query: string) {
     this.setState({ searchInput: query })
   }
@@ -40,7 +49,7 @@ class App extends React.Component<{}, State> {
     fetch(`/api/cities/search?query=${this.state.searchInput}`)
         .then((response: Response) => {
           if (response.ok) {
-            response.json().then((data) => this.setState({searchResult: data}))
+            response.json().then((data) => this.setState({ searchResult: data }))
           }
         })
   }
@@ -60,7 +69,7 @@ class App extends React.Component<{}, State> {
                 <NavItem>
                   <NavLink
                       className={classNames({ active: this.state.activeTab === "1" })}
-                      onClick={() => this.toggle("1")}
+                      onClick={this.toggleTab1}
                   >
                     Map View
                   </NavLink>
@@ -68,7 +77,7 @@ class App extends React.Component<{}, State> {
                 <NavItem>
                   <NavLink
                       className={classNames({ active: this.state.activeTab === "2" })}
-                      onClick={() => this.toggle("2")}
+                      onClick={this.toggleTab2}
                   >
                     Table view
                   </NavLink>
@@ -85,7 +94,7 @@ class App extends React.Component<{}, State> {
                 <TabPane tabId="2">
                   <Row className="row-top-buffer">
                     <Col>
-                      <CityTable cities={this.state.searchResult}/>
+                      <CityTable cities={this.state.searchResult} />
                     </Col>
                   </Row>
                 </TabPane>
