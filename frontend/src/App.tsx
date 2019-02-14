@@ -7,13 +7,17 @@ import City from "model/City"
 import React from "react"
 import { Col, Container, Nav, NavItem, NavLink, Row, TabContent, TabPane } from "reactstrap"
 
+interface AppProps {
+  mapApiKey: string
+}
+
 interface State {
   activeTab: string
   searchInput: string
   searchResult: City[]
 }
 
-class App extends React.Component<{}, State> {
+class App extends React.Component<AppProps, State> {
   constructor(props) {
     super(props)
     this.state = {
@@ -47,7 +51,7 @@ class App extends React.Component<{}, State> {
   }
 
   submitSearch() {
-    fetch(`/api/cities/search?query=${this.state.searchInput}`)
+    fetch(`/cities/search?query=${this.state.searchInput}`)
         .then((response: Response) => {
           if (response.ok) {
             response.json().then((data) => this.setState({ searchResult: data }))
@@ -88,7 +92,7 @@ class App extends React.Component<{}, State> {
                 <TabPane tabId="1">
                   <Row className="row-top-buffer">
                     <Col>
-                      <CityMap cities={this.state.searchResult} />
+                      <CityMap mapApiKey={this.props.mapApiKey} cities={this.state.searchResult} />
                     </Col>
                   </Row>
                 </TabPane>

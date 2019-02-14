@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.butchyyyy.citysearch.CitySearchConfig;
 import com.butchyyyy.citysearch.generated.City;
 import org.geonames.FeatureClass;
 import org.geonames.InsufficientStyleException;
@@ -20,8 +21,8 @@ import org.springframework.util.StringUtils;
 public class GeonamesServiceImpl implements GeonamesService {
 
   @Autowired
-  public GeonamesServiceImpl() {
-    WebService.setUserName("butchyyyy");
+  public GeonamesServiceImpl(CitySearchConfig config) {
+    WebService.setUserName(config.getGeonames().getUserName());
   }
 
   @Override
@@ -71,9 +72,7 @@ public class GeonamesServiceImpl implements GeonamesService {
       if (!StringUtils.isEmpty(toponym.getAdminName2())) {
         countryName += ", " + toponym.getAdminName2();
       }
-    } catch (
-        InsufficientStyleException ex) {
-      // No administrative sub divison available >;
+    } catch (InsufficientStyleException ex) {
     }
     return countryName;
   }

@@ -22,9 +22,8 @@ const output = merge.strategy({
     contentBase: path.resolve(__dirname, "dist"),
     proxy: [
       {
-        context: ["/api/**"],
+        context: ["/cities/**", "/config/**"],
         target: "http://localhost:8090/",
-        pathRewrite: {"^/api": ""},
         secure: false,
         changeOrigin: true,
       },

@@ -8,6 +8,10 @@ interface OwnProps {
   cities: City[]
 }
 
+interface WrapperProps {
+  mapApiKey: string
+}
+
 type Props = OwnProps & WithGoogleMapProps & WithScriptjsProps
 
 const CityMap: React.FunctionComponent<Props> = (props: Props) => (
@@ -20,10 +24,10 @@ const CityMap: React.FunctionComponent<Props> = (props: Props) => (
 
 const Enhanced = withScriptjs(withGoogleMap(CityMap))
 
-const composed = (props: OwnProps) => (
+const composed = (props: OwnProps & WrapperProps) => (
     <Enhanced
         cities={props.cities}
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}`}
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${props.mapApiKey}`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `600px` }} />}
         mapElement={<div style={{ height: `100%` }} />}

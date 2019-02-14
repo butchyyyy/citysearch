@@ -10,4 +10,11 @@ import "style/CitySearch.less"
 
 library.add(faSearchLocation)
 
-ReactDom.render(<App />, document.getElementById("root"))
+fetch("/config/mapApiKey")
+    .then((response) => {
+      if (response.ok) {
+        response.text().then((apiKey) => {
+          ReactDom.render(<App mapApiKey={apiKey} />, document.getElementById("root"))
+        })
+      }
+    })
