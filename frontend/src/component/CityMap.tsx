@@ -1,11 +1,12 @@
 import CityMarker from "component/CityMarker"
+import CityMarkerClusterer from "component/CityMarkerClusterer"
 import City from "model/City"
 import React from "react"
 import { GoogleMap, withGoogleMap, WithGoogleMapProps, withScriptjs, WithScriptjsProps } from "react-google-maps"
-import { MarkerWithLabel } from "react-google-maps/lib/components/addons/MarkerWithLabel"
 
 interface OwnProps {
   cities: City[]
+  markerClusterer: boolean
 }
 
 interface WrapperProps {
@@ -29,9 +30,11 @@ class CityMap extends React.PureComponent<Props> {
             defaultZoom={2}
             ref={this.mapRef}
         >
-          {this.props.cities.map((city, index) => (
-              <CityMarker key={index} city={city} />
-          ))}
+          <CityMarkerClusterer markerClusterer={this.props.markerClusterer}>
+            {this.props.cities.map((city, index) => (
+                <CityMarker key={index} city={city} />
+            ))}
+          </CityMarkerClusterer>
         </GoogleMap>
     )
   }
@@ -52,6 +55,7 @@ const Enhanced = withScriptjs(withGoogleMap(CityMap))
 const composed = (props: OwnProps & WrapperProps) => (
     <Enhanced
         cities={props.cities}
+        markerClusterer={props.markerClusterer}
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${props.mapApiKey}`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `600px` }} />}

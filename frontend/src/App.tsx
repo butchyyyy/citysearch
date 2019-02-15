@@ -7,7 +7,7 @@ import SearchSummary from "component/SearchSummary"
 import Spinner from "component/Spinner"
 import City from "model/City"
 import React from "react"
-import { Col, Container, Nav, NavItem, NavLink, Row, TabContent, TabPane } from "reactstrap"
+import { Col, Container, CustomInput, Nav, NavItem, NavLink, Row, TabContent, TabPane } from "reactstrap"
 
 interface AppProps {
   mapApiKey: string
@@ -18,6 +18,7 @@ interface State {
   searchInput: string
   searchResult: City[]
   searching: boolean
+  markerClusterer: boolean
 }
 
 class App extends React.Component<AppProps, State> {
@@ -28,12 +29,14 @@ class App extends React.Component<AppProps, State> {
       activeTab: "1",
       searchInput: "",
       searchResult: [],
+      markerClusterer: true,
     }
     this.toggle = this.toggle.bind(this)
     this.toggleTab1 = this.toggleTab1.bind(this)
     this.toggleTab2 = this.toggleTab2.bind(this)
     this.searchInput = this.searchInput.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
+    this.markerClustererToggle = this.markerClustererToggle.bind(this)
   }
 
   toggle(tab) {
@@ -68,6 +71,10 @@ class App extends React.Component<AppProps, State> {
         })
   }
 
+  markerClustererToggle() {
+    this.setState({ markerClusterer: !this.state.markerClusterer })
+  }
+
   render() {
     return (
         <Container>
@@ -79,8 +86,17 @@ class App extends React.Component<AppProps, State> {
               </Col>
             </Row>
             <Row className="row-top-buffer-small">
-              <Col>
+              <Col xs={6} sm={6} md={4} lg={4} xl={2}>
                 <SearchSummary cities={this.state.searchResult} />
+              </Col>
+              <Col xs={6} sm={6} md={4} lg={4} xl={2}>
+                <CustomInput
+                    type="switch"
+                    label="Cluster Markers"
+                    id="markerClusetere"
+                    checked={this.state.markerClusterer}
+                    onChange={this.markerClustererToggle}
+                />
               </Col>
             </Row>
             <Row className="row-top-buffer-small">
@@ -107,7 +123,7 @@ class App extends React.Component<AppProps, State> {
                   <TabPane tabId="1">
                     <Row className="row-top-buffer">
                       <Col>
-                        <CityMap mapApiKey={this.props.mapApiKey} cities={this.state.searchResult} />
+                        <CityMap mapApiKey={this.props.mapApiKey} cities={this.state.searchResult} markerClusterer={this.state.markerClusterer} />
                       </Col>
                     </Row>
                   </TabPane>
