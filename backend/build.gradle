@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.1.2.RELEASE'
     id 'org.hidetake.swagger.generator' version '2.16.0'
     id 'java'
+    id 'jacoco'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -54,11 +55,15 @@ swaggerSources {
     }
 }
 
-build.dependsOn generateSwaggerUI
-
 compileJava.dependsOn swaggerSources.CitySearch.code
 sourceSets.main.java.srcDir "${swaggerSources.CitySearch.code.outputDir}/src/main/java"
 sourceSets.main.resources.srcDir "${swaggerSources.CitySearch.code.outputDir}/src/main/resources"
+
+jacoco {
+    toolVersion = '0.8.3'
+}
+
+build.dependsOn generateSwaggerUI
 
 bootJar {
     from('../frontend/dist') {
