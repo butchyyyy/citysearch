@@ -33,6 +33,7 @@ public class GeonamesServiceImpl implements GeonamesService {
         search.setName(query);
         search.setFeatureClass(FeatureClass.P);
         search.setStyle(Style.FULL);
+        search.setMaxRows(1000);
         ToponymSearchResult searchResult = WebService.search(search);
         return searchResult.getToponyms().stream().map(this::mapToponymToCity).collect(Collectors.toList());
       }
