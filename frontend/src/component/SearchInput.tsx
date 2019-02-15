@@ -26,7 +26,7 @@ const SearchInput = (props: Props) => {
             <FontAwesomeIcon icon="search-location" />
           </InputGroupText>
         </InputGroupAddon>
-        <Input value={props.value} onChange={handleChange} onKeyPress={handleKeyPress} />
+        <Input value={props.value} onChange={handleChange} onKeyPress={handleKeyPress} placeholder="Enter City Name, Maximum of 1000 results will be shown" />
       </InputGroup>
   )
 }
