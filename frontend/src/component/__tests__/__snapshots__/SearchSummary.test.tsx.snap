@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test SearchSummmary Component Test SarchSummary Snapshot 1`] = `
+<h6>
+  Cities: 
+  <Badge
+    color="secondary"
+    pill={false}
+    tag="span"
+  >
+    3
+  </Badge>
+</h6>
+`;

@@ -59,15 +59,18 @@ class App extends React.Component<AppProps, State> {
 
   submitSearch() {
     this.setState({ searching: true })
-    fetch(`/cities/search?query=${this.state.searchInput}`)
+    return fetch(`/cities/search?query=${this.state.searchInput}`)
         .then((response: Response) => {
           if (response.ok) {
             response.json().then((data) => this.setState({ searching: false, searchResult: data }))
+          } else {
+            this.setState({ searching: false, searchResult: [] })
+            window.alert("Failed to load cities: " + response.statusText)
           }
         })
-        .catch(() => {
+        .catch((error) => {
           this.setState({ searching: false, searchResult: [] })
-          window.alert(":`(")
+          window.alert("Failed to load cities: " + error)
         })
   }
 

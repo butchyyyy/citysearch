@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CityMap Component Test CityMap Snapshot 1`] = `
+<withScriptjs(withGoogleMap(CityMap))
+  cities={
+    Array [
+      Object {
+        "country": "Czechia",
+        "lat": 50.08804,
+        "lng": 14.42076,
+        "name": "Prague",
+        "population": 1165581,
+      },
+      Object {
+        "country": "United States, Minnesota, Minneapolis",
+        "lat": 44.5433,
+        "lng": -93.57607,
+        "name": "New Prague",
+        "population": 7582,
+      },
+      Object {
+        "country": "Some Country",
+        "lat": 0,
+        "lng": 0,
+        "name": "I don't have a population",
+        "population": null,
+      },
+    ]
+  }
+  containerElement={
+    <div
+      style={
+        Object {
+          "height": "600px",
+        }
+      }
+    />
+  }
+  googleMapURL="https://maps.googleapis.com/maps/api/js?key="
+  loadingElement={
+    <div
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    />
+  }
+  mapElement={
+    <div
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    />
+  }
+  markerClusterer={true}
+/>
+`;

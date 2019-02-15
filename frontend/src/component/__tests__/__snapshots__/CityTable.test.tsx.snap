@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CityTable Component Test CityTable Snapshot 1`] = `
+<Table
+  responsiveTag="div"
+  tag="table"
+>
+  <thead>
+    <tr>
+      <th>
+        City
+      </th>
+      <th>
+        Country
+      </th>
+      <th>
+        Population
+      </th>
+      <th>
+        Latitude
+      </th>
+      <th>
+        Longitude
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      key="0"
+    >
+      <td>
+        Prague
+      </td>
+      <td>
+        Czechia
+      </td>
+      <td>
+        1165581
+      </td>
+      <td>
+        50.08804
+      </td>
+      <td>
+        14.42076
+      </td>
+    </tr>
+    <tr
+      key="1"
+    >
+      <td>
+        New Prague
+      </td>
+      <td>
+        United States, Minnesota, Minneapolis
+      </td>
+      <td>
+        7582
+      </td>
+      <td>
+        44.5433
+      </td>
+      <td>
+        -93.57607
+      </td>
+    </tr>
+    <tr
+      key="2"
+    >
+      <td>
+        I don't have a population
+      </td>
+      <td>
+        Some Country
+      </td>
+      <td />
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+    </tr>
+  </tbody>
+</Table>
+`;

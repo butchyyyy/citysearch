@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Navbar Component Test Navbar Snapshot 1`] = `
+<Navbar
+  expand={false}
+  tag="nav"
+>
+  <NavbarBrand
+    color="light"
+    tag="a"
+  >
+    City Search
+  </NavbarBrand>
+</Navbar>
+`;

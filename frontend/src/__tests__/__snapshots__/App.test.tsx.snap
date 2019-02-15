@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test App Component Test App Snapshost 1`] = `
+<Container
+  tag="div"
+>
+  <Navbar />
+  <Spinner
+    loading={false}
+  >
+    <Row
+      tag="div"
+    >
+      <Col
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <SearchInput
+          onSearchInput={[Function]}
+          onSubmitSearch={[Function]}
+          value=""
+        />
+      </Col>
+    </Row>
+    <Row
+      className="row-top-buffer-small"
+      tag="div"
+    >
+      <Col
+        lg={4}
+        md={4}
+        sm={6}
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xl={2}
+        xs={6}
+      >
+        <SearchSummary
+          cities={Array []}
+        />
+      </Col>
+      <Col
+        lg={4}
+        md={4}
+        sm={6}
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xl={2}
+        xs={6}
+      >
+        <CustomInput
+          checked={true}
+          id="markerClusetere"
+          label="Cluster Markers"
+          onChange={[Function]}
+          type="switch"
+        />
+      </Col>
+    </Row>
+    <Row
+      className="row-top-buffer-small"
+      tag="div"
+    >
+      <Col
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <Nav
+          tabs={true}
+          tag="ul"
+          vertical={false}
+        >
+          <NavItem
+            tag="li"
+          >
+            <NavLink
+              className="active"
+              onClick={[Function]}
+              tag="a"
+            >
+              Map View
+            </NavLink>
+          </NavItem>
+          <NavItem
+            tag="li"
+          >
+            <NavLink
+              className=""
+              onClick={[Function]}
+              tag="a"
+            >
+              Table view
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent
+          activeTab="1"
+          tag="div"
+        >
+          <TabPane
+            tabId="1"
+            tag="div"
+          >
+            <Row
+              className="row-top-buffer"
+              tag="div"
+            >
+              <Col
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <composed
+                  cities={Array []}
+                  mapApiKey=""
+                  markerClusterer={true}
+                />
+              </Col>
+            </Row>
+          </TabPane>
+          <TabPane
+            tabId="2"
+            tag="div"
+          >
+            <Row
+              className="row-top-buffer"
+              tag="div"
+            >
+              <Col
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <CityTable
+                  cities={Array []}
+                />
+              </Col>
+            </Row>
+          </TabPane>
+        </TabContent>
+      </Col>
+    </Row>
+  </Spinner>
+</Container>
+`;

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test SerachInput Component Test SerachInput Snapshot 1`] = `
+<InputGroup
+  tag="div"
+>
+  <InputGroupAddon
+    addonType="prepend"
+    tag="div"
+  >
+    <InputGroupText
+      tag="span"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon="search-location"
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        symbol={false}
+        title=""
+        transform={null}
+      />
+    </InputGroupText>
+  </InputGroupAddon>
+  <Input
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder="Enter City Name, Maximum of 1000 results will be shown"
+    type="text"
+    value="test"
+  />
+</InputGroup>
+`;

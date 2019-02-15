@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CityMarkerClusterer Component Test CityMarkerClusterer Snapshot 1`] = `"TestChildren"`;
+
+exports[`Test CityMarkerClusterer Component Test CityMarkerClusterer Snapshot 2`] = `
+<MarkerClusterer
+  averageCenter={true}
+  enableRetinaIcons={true}
+  gridSize={60}
+>
+  TestChildren
+</MarkerClusterer>
+`;

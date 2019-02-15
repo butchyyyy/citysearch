@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CityMarker Component Test CityMarker Snapshot 1`] = `
+<Marker
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  position={
+    Object {
+      "lat": 50.08804,
+      "lng": 14.42076,
+    }
+  }
+/>
+`;
+
+exports[`Test CityMarker Component Test Mouse Events 1`] = `
+<Marker
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  position={
+    Object {
+      "lat": 50.08804,
+      "lng": 14.42076,
+    }
+  }
+>
+  <InfoWindow>
+    <div>
+      <strong>
+        Prague
+      </strong>
+      <br />
+      <small>
+        Czechia
+      </small>
+      <br />
+      <small>
+        Population: 
+        1165581
+      </small>
+    </div>
+  </InfoWindow>
+</Marker>
+`;
+
+exports[`Test CityMarker Component Test Mouse Events 2`] = `
+<Marker
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  position={
+    Object {
+      "lat": 0,
+      "lng": 0,
+    }
+  }
+>
+  <InfoWindow>
+    <div>
+      <strong>
+        I don't have a population
+      </strong>
+      <br />
+      <small>
+        Some Country
+      </small>
+      <br />
+      <small>
+        Population: 
+        N/A
+      </small>
+    </div>
+  </InfoWindow>
+</Marker>
+`;

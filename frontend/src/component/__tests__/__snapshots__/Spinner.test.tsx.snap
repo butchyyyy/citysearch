@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Spinner Component Test Spinner Snapshot 1`] = `
+<Fragment>
+  <div
+    className={null}
+  >
+    Children
+  </div>
+</Fragment>
+`;
+
+exports[`Test Spinner Component Test Spinner Snapshot 2`] = `
+<Fragment>
+  <div
+    className="spinner"
+  >
+    <div
+      className="rect1"
+    />
+    <div
+      className="rect2"
+    />
+    <div
+      className="rect3"
+    />
+    <div
+      className="rect4"
+    />
+    <div
+      className="rect5"
+    />
+  </div>
+  <div
+    className="mask"
+  >
+    Children
+  </div>
+</Fragment>
+`;
