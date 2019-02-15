@@ -6,4 +6,14 @@ task buildProd(type: YarnTask) {
     args = ['build:prod']
 }
 
+task lint(type: YarnTask) {
+    args = ['lint']
+}
+
+task test(type: YarnTask) {
+    args = ['test']
+}
+
 buildProd.dependsOn(yarn)
+buildProd.dependsOn(lint)
+buildProd.dependsOn(test)
