@@ -64,6 +64,10 @@ jacoco {
     toolVersion = '0.8.3'
 }
 
+task testCoverage(type: GradleBuild) {
+    tasks = ['test', 'jacocoTestReport']
+}
+
 build.dependsOn generateSwaggerUI
 
 bootJar {

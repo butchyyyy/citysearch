@@ -14,6 +14,14 @@ task test(type: YarnTask) {
     args = ['test']
 }
 
+task testCoverage(type: YarnTask) {
+    args = ['test:coverage']
+}
+
+task start(type: YarnTask) {
+    args = ['start']
+}
+
 buildProd.dependsOn(yarn)
 buildProd.dependsOn(lint)
 buildProd.dependsOn(test)
