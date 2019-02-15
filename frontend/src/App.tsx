@@ -3,6 +3,7 @@ import CityMap from "component/CityMap"
 import CityTable from "component/CityTable"
 import Navbar from "component/Navbar"
 import SearchInput from "component/SearchInput"
+import SearchSummary from "component/SearchSummary"
 import Spinner from "component/Spinner"
 import City from "model/City"
 import React from "react"
@@ -77,7 +78,12 @@ class App extends React.Component<AppProps, State> {
                 <SearchInput value={this.state.searchInput} onSearchInput={this.searchInput} onSubmitSearch={this.submitSearch} />
               </Col>
             </Row>
-            <Row className="row-top-buffer">
+            <Row className="row-top-buffer-small">
+              <Col>
+                <SearchSummary cities={this.state.searchResult} />
+              </Col>
+            </Row>
+            <Row className="row-top-buffer-small">
               <Col>
                 <Nav tabs>
                   <NavItem>
