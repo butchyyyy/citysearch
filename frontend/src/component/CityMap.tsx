@@ -14,13 +14,38 @@ interface WrapperProps {
 
 type Props = OwnProps & WithGoogleMapProps & WithScriptjsProps
 
-const CityMap: React.FunctionComponent<Props> = (props: Props) => (
-    <GoogleMap defaultCenter={{ lat: 0, lng: 0 }} defaultZoom={2}>
-      {props.cities.map((city, index) => (
-          <CityMarker key={index} city={city} />
-      ))}
-    </GoogleMap>
-)
+class CityMap extends React.PureComponent<Props> {
+  mapRef: React.RefObject<GoogleMap>
+
+  constructor(props) {
+    super(props)
+    this.mapRef = React.createRef()
+  }
+
+  render() {
+    return (
+        <GoogleMap
+            defaultCenter={{ lat: 0, lng: 0 }}
+            defaultZoom={2}
+            ref={this.mapRef}
+        >
+          {this.props.cities.map((city, index) => (
+              <CityMarker key={index} city={city} />
+          ))}
+        </GoogleMap>
+    )
+  }
+
+  componentDidUpdate() {
+    if (this.props.cities && this.props.cities.length > 0) {
+      const bounds = new google.maps.LatLngBounds()
+      this.props.cities.forEach((city) => {
+        bounds.extend({ lat: city.lat, lng: city.lng })
+      })
+      this.mapRef.current.fitBounds(bounds)
+    }
+  }
+}
 
 const Enhanced = withScriptjs(withGoogleMap(CityMap))
 
