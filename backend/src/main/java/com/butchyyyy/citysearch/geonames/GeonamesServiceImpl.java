@@ -14,6 +14,7 @@ import org.geonames.ToponymSearchCriteria;
 import org.geonames.ToponymSearchResult;
 import org.geonames.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -25,6 +26,7 @@ public class GeonamesServiceImpl implements GeonamesService {
     WebService.setUserName(config.getGeonames().getUserName());
   }
 
+  @Cacheable("cityCache")
   @Override
   public List<City> searchCities(String query) {
     try {
