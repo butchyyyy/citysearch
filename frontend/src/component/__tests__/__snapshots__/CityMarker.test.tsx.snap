@@ -2,8 +2,7 @@
 
 exports[`Test CityMarker Component Test CityMarker Snapshot 1`] = `
 <Marker
-  onMouseOut={[Function]}
-  onMouseOver={[Function]}
+  onClick={[Function]}
   position={
     Object {
       "lat": 50.08804,
@@ -15,8 +14,7 @@ exports[`Test CityMarker Component Test CityMarker Snapshot 1`] = `
 
 exports[`Test CityMarker Component Test Mouse Events 1`] = `
 <Marker
-  onMouseOut={[Function]}
-  onMouseOver={[Function]}
+  onClick={[Function]}
   position={
     Object {
       "lat": 50.08804,
@@ -24,7 +22,9 @@ exports[`Test CityMarker Component Test Mouse Events 1`] = `
     }
   }
 >
-  <InfoWindow>
+  <InfoWindow
+    onCloseClick={[Function]}
+  >
     <div>
       <strong>
         Prague
@@ -45,8 +45,7 @@ exports[`Test CityMarker Component Test Mouse Events 1`] = `
 
 exports[`Test CityMarker Component Test Mouse Events 2`] = `
 <Marker
-  onMouseOut={[Function]}
-  onMouseOver={[Function]}
+  onClick={[Function]}
   position={
     Object {
       "lat": 0,
@@ -54,7 +53,9 @@ exports[`Test CityMarker Component Test Mouse Events 2`] = `
     }
   }
 >
-  <InfoWindow>
+  <InfoWindow
+    onCloseClick={[Function]}
+  >
     <div>
       <strong>
         I don't have a population

@@ -12,17 +12,16 @@ describe("Test CityMarker Component", () => {
   })
 
   it("Test Mouse Events", () => {
+    expect(wrapper.find(InfoWindow).exists()).toBeFalsy()
     // Test InfoWindow gets rendered on mouseover
-    wrapper.simulate("mouseover")
-    expect(wrapper.state("hovered")).toBeTruthy()
+    wrapper.simulate("click")
     expect(wrapper.find(InfoWindow).exists()).toBeTruthy()
     expect(wrapper).toMatchSnapshot()
     // Test with null population City
     wrapper.setProps({ city: cityNullPopulation })
     expect(wrapper).toMatchSnapshot()
     // Test Info window gets hidden on mouseout
-    wrapper.simulate("mouseout")
-    expect(wrapper.state("hovered")).toBeFalsy()
+    wrapper.simulate("click")
     expect(wrapper.find(InfoWindow).exists()).toBeFalsy()
   })
 })

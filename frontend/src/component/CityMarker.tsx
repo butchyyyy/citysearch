@@ -9,7 +9,7 @@ interface OwnProps {
 }
 
 interface State {
-  hovered: boolean
+  opened: boolean
 }
 
 type Props = Pick<MarkerProps, Exclude<keyof MarkerProps, "position">> & OwnProps
@@ -17,17 +17,12 @@ type Props = Pick<MarkerProps, Exclude<keyof MarkerProps, "position">> & OwnProp
 class CityMarker extends React.Component<Props, State> {
   constructor(props) {
     super(props)
-    this.state = { hovered: false }
-    this.onMouseOver = this.onMouseOver.bind(this)
-    this.onMouseOut = this.onMouseOut.bind(this)
+    this.state = { opened: false }
+    this.toggleOpen = this.toggleOpen.bind(this)
   }
 
-  onMouseOver() {
-    this.setState({ hovered: true })
-  }
-
-  onMouseOut() {
-    this.setState({ hovered: false })
+  toggleOpen() {
+    this.setState({ opened: !this.state.opened })
   }
 
   render() {
@@ -35,12 +30,11 @@ class CityMarker extends React.Component<Props, State> {
     return (
         <Marker
             position={{ lat: city.lat, lng: city.lng }}
-            onMouseOver={this.onMouseOver}
-            onMouseOut={this.onMouseOut}
+            onClick={this.toggleOpen}
             {...markerProps}
         >
-          {this.state.hovered && (
-              <InfoWindow>
+          {this.state.opened && (
+              <InfoWindow onCloseClick={this.toggleOpen}>
                 <div>
                   <strong>{city.name}</strong>
                   <br />
