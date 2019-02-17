@@ -10,17 +10,26 @@ import React from "react"
 import { Col, Container, CustomInput, Nav, NavItem, NavLink, Row, TabContent, TabPane } from "reactstrap"
 
 interface AppProps {
+  /** API key to use with Google Map Javascript API */
   mapApiKey: string
 }
 
 interface State {
+  /** Active tab Id */
   activeTab: string
+  /** Current user search input */
   searchInput: string
+  /** Current search result */
   searchResult: City[]
+  /** true if serach is actually being performed (data being fetched from backend) */
   searching: boolean
+  /** Current marker clustering setting */
   markerClusterer: boolean
 }
 
+/**
+ * The App component containing main layout and application logc
+ */
 class App extends React.Component<AppProps, State> {
   constructor(props) {
     super(props)
@@ -39,24 +48,41 @@ class App extends React.Component<AppProps, State> {
     this.markerClustererToggle = this.markerClustererToggle.bind(this)
   }
 
+  /**
+   * Toggles active Tab
+   * @param tab The tab id to activate
+   */
   toggle(tab) {
     if (this.state.activeTab !== tab) {
       this.setState({ activeTab: tab })
     }
   }
 
+  /**
+   * Toggles first tab with city map
+   */
   toggleTab1() {
     this.toggle("1")
   }
 
+  /**
+   * Toggles second tab with city table
+   */
   toggleTab2() {
     this.toggle("2")
   }
 
+  /**
+   * Stores current user search input into state
+   * @param query The current user search input
+   */
   searchInput(query: string) {
     this.setState({ searchInput: query })
   }
 
+  /**
+   * Submits the current search input and queries backend service for list of cities
+   */
   submitSearch() {
     this.setState({ searching: true })
     return fetch(`/cities/search?query=${this.state.searchInput}`)
@@ -74,6 +100,9 @@ class App extends React.Component<AppProps, State> {
         })
   }
 
+  /**
+   * Toggle marker clustering map setting on/offs
+   */
   markerClustererToggle() {
     this.setState({ markerClusterer: !this.state.markerClusterer })
   }

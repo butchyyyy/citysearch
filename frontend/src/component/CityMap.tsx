@@ -5,16 +5,22 @@ import React from "react"
 import { GoogleMap, withGoogleMap, WithGoogleMapProps, withScriptjs, WithScriptjsProps } from "react-google-maps"
 
 interface OwnProps {
+  /** List of cities to display on map */
   cities: City[]
+  /** Marker clustering setting */
   markerClusterer: boolean
 }
 
 interface WrapperProps {
+  /** The API key to use with Google Map Javascript API */
   mapApiKey: string
 }
 
 type Props = OwnProps & WithGoogleMapProps & WithScriptjsProps
 
+/**
+ * Renders Google Map with list of cities represented as map markers
+ */
 class CityMap extends React.PureComponent<Props> {
   mapRef: React.RefObject<GoogleMap>
 

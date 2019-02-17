@@ -3,9 +3,11 @@ import React from "react"
 import { Table } from "reactstrap"
 
 interface Props {
+  /** Cities to tender in the table */
   cities: City[]
 }
 
+/** Renders cities in a basic responsive table */
 const CityTable = (props: Props) => (
     <Table>
       <thead>

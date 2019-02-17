@@ -3,10 +3,15 @@ import React from "react"
 import "style/Spinner.less"
 
 interface Props {
+  /** If true, spinner animation and blocking mask will show over the wrapped elements */
   loading: boolean
+  /** Wrapped elements to show spinner and blocking mask on when loading === true */
   children?: any
 }
 
+/**
+ * UX class that shows spinner animation when e.g. an async action is fetching data
+ */
 const Spinner = (props: Props) => (
     <>
       {props.loading &&

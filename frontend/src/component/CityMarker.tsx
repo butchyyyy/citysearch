@@ -5,6 +5,7 @@ import InfoWindow from "react-google-maps/lib/components/InfoWindow"
 import { MarkerProps } from "react-google-maps/lib/components/Marker"
 
 interface OwnProps {
+  /** The city to display marker for */
   city: City
 }
 
@@ -14,6 +15,9 @@ interface State {
 
 type Props = Pick<MarkerProps, Exclude<keyof MarkerProps, "position">> & OwnProps
 
+/**
+ * A map marker for one city with InfoWindow toggled by clicking on the map marker
+ */
 class CityMarker extends React.Component<Props, State> {
   constructor(props) {
     super(props)
@@ -21,6 +25,7 @@ class CityMarker extends React.Component<Props, State> {
     this.toggleOpen = this.toggleOpen.bind(this)
   }
 
+  /** Toggles InfoWindow */
   toggleOpen() {
     this.setState({ opened: !this.state.opened })
   }

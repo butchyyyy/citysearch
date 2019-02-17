@@ -66,6 +66,12 @@ public class GeonamesServiceImpl implements GeonamesService {
     }
   }
 
+  /**
+   * Builds "Country Name" with optional sub divisions
+   *
+   * @param toponym The toponym to get information from
+   * @return The city's country name
+   */
   private String getCountryName(Toponym toponym) {
     String countryName = toponym.getCountryName();
     try {

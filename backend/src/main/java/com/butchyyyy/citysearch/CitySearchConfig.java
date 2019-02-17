@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("citysearch")
 public class CitySearchConfig {
 
+  /** Google map related configuration */
   private final Googlemap googlemap = new Googlemap();
+  /** Geonames related configuration */
   private final Geonames geonames = new Geonames();
 
   public Googlemap getGooglemap() {
@@ -20,6 +22,7 @@ public class CitySearchConfig {
 
   public static class Googlemap {
 
+    /** The API key to authenticate with to the Google Map Javascript API */
     private String apiKey;
 
     public String getApiKey() {
@@ -33,6 +36,7 @@ public class CitySearchConfig {
 
   public static class Geonames {
 
+    /** The user name used to query the geonames API */
     private String userName;
 
     public String getUserName() {

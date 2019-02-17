@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
+/**
+ * Rest controller for city search services
+ */
 @Controller
 public class CitySearchController implements CitiesApi {
 
@@ -21,6 +24,13 @@ public class CitySearchController implements CitiesApi {
     this.geonamesService = geonamesService;
   }
 
+  /**
+   * Searches for cities by their name
+   *
+   * @param query
+   *     The query name to find cities by (partial word match)
+   * @return The list of matched cities
+   */
   @Override
   public ResponseEntity<List<City>> citiesSearchGet(@Valid String query) {
     return ResponseEntity.ok(geonamesService.searchCities(query));
