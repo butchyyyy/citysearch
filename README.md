@@ -34,8 +34,14 @@ For the application to work properly you also need:
 
 ### Building & Running 
 
-The application uses the [Gradle Build Tool](https://gradle.org/). To create Spring Boot Jar
+The application uses the [Gradle Build Tool](https://gradle.org/). To create the Spring Boot Jar
 run:
+```
+gradlew clean assemble
+```
+
+To run the Spring Boot application, run the following command:
+
 ```
 java -jar backend\build\libs\citysearch-app-<version>.jar
 ```
