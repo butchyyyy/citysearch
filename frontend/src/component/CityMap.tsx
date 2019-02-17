@@ -39,8 +39,8 @@ class CityMap extends React.PureComponent<Props> {
     )
   }
 
-  componentDidUpdate() {
-    if (this.props.cities && this.props.cities.length > 0) {
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.cities && this.props.cities.length > 0 && this.props.cities !== prevProps.cities) {
       const bounds = new google.maps.LatLngBounds()
       this.props.cities.forEach((city) => {
         bounds.extend({ lat: city.lat, lng: city.lng })
