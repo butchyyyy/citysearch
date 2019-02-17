@@ -61,7 +61,7 @@ MAP_API_KEY=<Your Google Map API Key>
 GEONAMES_USERNAME=<Your Geonames username>
 ```
 
-The application is available on http://localhost:8090 by default.
+The application is available at http://localhost:8090 by default.
 You can adjust the port by adding ```-Dserver.port=<Your desired port>``` to the command line
 or by setting ```PORT``` environment variable.  
 
@@ -76,7 +76,7 @@ project independently either from your favourite IDE or by gradle tasks:
 gradlew bootRun
 ```
 
-The backend is available on http://localhost:8090 by default.\
+The backend is available at http://localhost:8090 by default.\
 Note that this will start just the backend services and static front end assets won't be available
 since they're baked into the Spring Boot Jar in the assembly phase.
 
@@ -88,8 +88,8 @@ gradlew bootRun --args="--server.port=8099 --citysearch.googlemap.apiKey=topsecr
 ```
 
 To test the backend services without running front end you can use Swagger UI
-available on http://localhost:8090/swagger-ui.html
-You can of course use any other of your preference (Soap-UI, Postman etc.) 
+available at http://localhost:8090/swagger-ui.html
+You can of course use any other tool of your preference (Soap-UI, Postman etc.) 
 
 ##### Frontend
 
@@ -97,7 +97,7 @@ You can of course use any other of your preference (Soap-UI, Postman etc.)
 gradlew start
 ```
 
-The frontend is available on http://localhost:8080. Api requests are proxied
+The frontend is available at http://localhost:8080. Api requests are proxied
 to backend's default address http://localhost:8090.
 
 Changing the frontend port when starting dev server by a gradle task is not supported
@@ -128,4 +128,3 @@ gradlew testCoverage
 ```
 
 You can find the coverage reports in ```frontend/coverage``` and ```backend/build/reports/jacoco/test/html```
-``
